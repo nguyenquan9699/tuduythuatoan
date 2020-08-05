@@ -30,7 +30,12 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-int getNLess(vector<int> a, int b, int l, int r){ 
+int getNLess(vector<int> a, int b, int l, int r){
+    if (b > a[a.size()-1])
+        return a.size();
+    if (b <= a[0])
+        return 0;
+        
     int mid = (l+r)/2;
     if (b > a[mid]){
         if (b <= a[mid+1]){
