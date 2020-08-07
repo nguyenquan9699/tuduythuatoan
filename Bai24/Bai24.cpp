@@ -86,29 +86,20 @@ void buildConvexhull()
 int main()
 {
     cin >> n;
-    for(long long i=1; i<=n; ++i)
-    {
+    for(long long i=1; i<=n; ++i) {
         cin >> a[i].x >> a[i].y;
-        if(a[i].x<=xp)
-        {
+        if(a[i].x<=xp) {
             if(a[i].x==xp)
-            {
                 yp=min(yp,a[i].y);
-            }
-            else
-            {
+            else {
                 xp=a[i].x;
                 yp=a[i].y;
             }
         }
-        if(a[i].x>=xq)
-        {
+        if(a[i].x>=xq) {
             if(a[i].x==xq)
-            {
                 yq=max(yq,a[i].y);
-            }
-            else
-            {
+            else {
                 xq=a[i].x;
                 yq=a[i].y;
             }
@@ -121,18 +112,15 @@ int main()
     P.y=yp;
     buildConvexhull();
     long long Dt=0, vt;
-    for(int i = 0; i < rs.size(); ++i)
-    {
+    for(int i = 0; i < rs.size(); ++i) {
         vt = i+2;
         for(int j = i + 1; j < rs.size(); ++j)
-            for(int k = vt; k < rs.size(); ++k)
-            {
-                    Dt = max(Dt, abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k].x,rs[k].y)));
-                    if(abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k-1].x,rs[k-1].y)) > abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k].x,rs[k].y)))
-                    {
-                        vt=k;
-                        break;
-                    }
+            for(int k = vt; k < rs.size(); ++k) {
+                Dt = max(Dt, abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k].x,rs[k].y)));
+                if(abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k-1].x,rs[k-1].y)) > abs(Dientich(rs[i].x,rs[i].y,rs[j].x,rs[j].y,rs[k].x,rs[k].y))) {
+                    vt=k;
+                    break;
+                }
             }
     }
     cout<<Dt/2;
