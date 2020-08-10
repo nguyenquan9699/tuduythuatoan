@@ -17,7 +17,7 @@ vector<int> Bai18(vector<int>a, int n, int k) {
 	int max = s[id_r];
 	int min = s[id_l];
 	int tmp = id_l;
-
+	
 	for (int i = 0; i < n; i++) {
 		if (s[i] < min) {
 			min = s[i];

@@ -40,22 +40,21 @@ int main() {
 	for (int i = 0; i < n; i++)
 		prefixSum.push_back(prefixSum[i] + a[i]);
 	
-
-	// O(n^2)
-	long long sum_max = prefixSum[1];
+	long long sum_max = 0;
 	int x = 0, y = 0;
-
+	long long sum_min = 0;
+	int temp = 0;
 	for (int i = 0; i <= n; i++) {
-		for (int j = i + 1; j <= n; j++) {
-			long long temp = prefixSum[j] - prefixSum[i];
-			if (sum_max < temp) {
-				sum_max = temp;
-				x = i;
-				y = j;
-			}
+		if (prefixSum[i] < sum_min) {
+			sum_min = prefixSum[i];
+			temp = i;
+		}
+		if (sum_max < prefixSum[i] - sum_min) {
+			sum_max = prefixSum[i] - sum_min;
+			x = temp;
+			y = i - 1;
 		}
 	}
-	y = (y - 1) >= 0 ? y - 1 : x;
 	cout << sum_max << endl << x << endl << y;
 	
 	return 0;
