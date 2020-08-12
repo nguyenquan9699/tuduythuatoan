@@ -6,7 +6,6 @@
 
 using namespace std;
 int countPair(vector<int> a, int n, int k) {
-	sort(a.begin(), a.end());
 	int l = 0, r = n - 1, res = 0;
 	while (l < r) {
 		if (a[l] + a[r] <= k) {
