@@ -1,7 +1,7 @@
 # tuduythuatoan
 
 - 1 nlogn
-- 2 ...
+- 2 nlog(n)log(c)
 - 3 n^2
 - 4 n^3 => n^2logn
 - 5 n
@@ -24,4 +24,3 @@
 - 22 nlogn
 - 23 nlogn
 - 24 n^2
-- 
